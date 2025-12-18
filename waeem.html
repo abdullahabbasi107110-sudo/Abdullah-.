@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>abbasi — Portfolio</title>
+  <meta name="description" content="A clean, responsive portfolio template (HTML, CSS, JS). Replace text, images and links to make it yours.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#6ee7b7;
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, #071024 0%, #071529 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .container{max-width:var(--maxw);
+      margin:0 auto;
+      padding:24px;}
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(6px);
+      background:transparent;
+      z-index:40
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 0
+    }
+    .brand{
+      width:100px;
+      height:100px;
+    }
+    nav ul{
+      display:flex;
+      gap:18px;
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+    }
+    nav a:hover{
+      color:var(--accent)
+    }
+    .cta{
+      padding:8px 12px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+    }
+
+    /* Mobile nav */
+    .hamburger{display:none;
+      background:none;
+      border:0;
+      color:var(--muted);
+      font-size:20px;
+    }
+    .mobile-nav{
+      display:none;
+    }
+
+    /* HERO */
+    .hero{display:grid;
+      grid-template-columns:1fr 420px;
+      gap:36px;
+      align-items:center;
+      padding:48px 0;
+    }
+   
+   
+    .hero .intro h1{
+      font-size:44px;
+      margin:0 0 12px;
+    }
+    .hero .intro p{
+      color:var(--muted);
+      margin:0 0 18px;
+    }
+    .hero .actions{
+      display:flex;
+      gap:12px;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),#3dd9c4);
+      color:#022;
+       padding:10px 16px;
+       border-radius:10px;
+       font-weight:700;
+       border:0;
+      }
+    .btn-ghost{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:10px 16px;
+      border-radius:10px;
+      color:var(--muted);
+    }
+
+    .card{background:var(--card);
+      border-radius:14px;
+      padding:18px;
+      box-shadow:0 6px 30px rgba(2,6,23,0.6);
+    }
+    .avatar{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:10px;
+    }
+
+    /* SECTIONS */
+    section{
+      padding:48px 0;
+    }
+    h2{
+      margin:0 0 18px;
+      font-size:22px;
+    }
+    .muted{
+      color:var(--muted);
+    }
+
+    /* SKILLS */
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .skill{
+      background:var(--glass);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600;
+      color:var(--muted);
+    }
+
+    /* PROJECTS */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .project{
+      border-radius:12px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+    }
+    .project img{
+      width:100%;
+      height:160px;
+      object-fit:cover;
+      display:block;
+    }
+    .project .meta{
+      padding:12px;
+    }
+    .project h3{
+      margin:0 0 6px;
+      font-size:16px;
+    }
+    .project p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* CONTACT */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .form input,.form textarea{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.05);
+      background:transparent;
+      color:inherit;
+    }
+    .form textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    /* FOOTER */
+    footer{padding:28px 0;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px
+    }
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{
+        grid-template-columns:1fr 360px}
+      .projects-grid{
+        grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:768px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+      .hero .card{
+        order:-1;
+      }
+      nav ul{
+        display:none;
+      }
+      .hamburger{
+        display:block;
+      }
+      .mobile-nav{
+        display:block;
+        background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.0));
+        padding:12px;
+        border-radius:10px;
+        margin-top:8px;
+      }
+      .projects-grid{
+        grid-template-columns:1fr;
+      }
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    /* small touches */
+    a{
+      cursor:pointer;
+    }
+    .socials{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+    }
+    .small{
+      font-size:13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><img src="logo-D02UH-l2.png"></div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <button class="cta small">Download CV</button>
+        <button class="hamburger" id="hamb">☰</button>
+      </div>
+    </div>
+    <div class="container" id="mobileMenu" style="display:none">
+      <div class="mobile-nav card">
+        <a href="#home">Home</a><br>
+        <a href="#about">About</a><br>
+        <a href="#skills">Skills</a><br>
+        <a href="#projects">Projects</a><br>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="intro">
+        <h1>Hi, I’m <span style="color:var(--accent)">abbasi</span></h1>
+        <p class="muted">A passionate Web Developer who builds beautiful and performant websites. I specialise in front-end development using HTML, CSS and JavaScript.</p>
+        <div class="actions">
+          <a class="btn-primary" href="#projects">View Projects</a>
+          <a class="btn-ghost" href="#contact">Hire Me</a>
+        </div>
+        <div style="margin-top:22px">
+          <strong>Quick links:</strong>
+          <div class="skills" style="margin-top:10px">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Node</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="width:100%;max-width:420px">
+        <img src="frich-F_Z_76jX.png" alt="avatar" class="avatar">
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <p class="muted">I am a dedicated developer with experience in building modern, responsive websites. I enjoy turning designs into high-performance interfaces and learning new technologies every day. Replace this paragraph with your real bio — education, interests, and what you want visitors to know about you.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="card">
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">React</span>
+          <span class="skill">Git</span>
+          <span class="skill">Tailwind</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <article class="project card">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project-1">
+          <div class="meta">
+            <h3>1️⃣ To-Do List Application</h3>
+            <p class="muted">A simple task management app where users can add, delete, and mark tasks as completed..</p>
+          </div>
+        </article>
+
+        <article class="project card">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project-2">
+          <div class="meta">
+            <h3>2️⃣ Calculator</h3>
+            <p class="muted">A basic calculator that can perform addition, subtraction, multiplication, and division.</p>
+          </div>
+        </article>
+
+        <article class="project card">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project-3">
+          <div class="meta">
+            <h3>3️⃣ Digital Clock</h3>
+            <p class="muted">A real-time digital clock that displays current hours, minutes, and seconds.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card contact-grid">
+        <div>
+          <p class="muted">Interested in working together? Send a message or reach me on social links below.</p>
+          <div style="margin-top:12px">
+            <div><strong>Email</strong></div>
+            <div class="muted">youremail@example.com</div>
+          </div>
+          <div style="margin-top:12px">
+            <strong>Social</strong>
+            <div class="socials" style="margin-top:8px">
+              <a class="small muted" href="#">GitHub</a>
+              <a class="small muted" href="#">LinkedIn</a>
+              <a class="small muted" href="#">Twitter</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="form" onsubmit="handleForm(event)">
+          <input type="text" id="name" placeholder="Your name" required>
+          <input type="email" id="email" placeholder="Your email" required style="margin-top:8px">
+          <textarea id="message" placeholder="Your message" style="margin-top:8px" required></textarea>
+          <div style="margin-top:8px;text-align:right">
+            <button class="btn-primary" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="muted">© <span id="year"></span> Your Name. Built with ❤️ • <span class="small">Made with plain HTML, CSS & JS</span></div>
+    </div>
+  </footer>
+
+  <script>
+    // small interactive script for menu, smooth scrolling, and form stub
+    const hamb = document.getElementById('hamb');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamb.addEventListener('click', ()=>{
+      if(mobileMenu.style.display === 'none') mobileMenu.style.display = 'block';
+      else mobileMenu.style.display = 'none';
+    });
+
+    // smooth scroll for same page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = this.getAttribute('href');
+        if(target === '#') return;
+        if(document.querySelector(target)){
+          e.preventDefault();
+          document.querySelector(target).scrollIntoView({behavior:'smooth',block:'start'});
+          // close mobile menu on click
+          if(window.innerWidth <= 768) mobileMenu.style.display = 'none';
+        }
+      });
+    });
+
+    // form stub (no backend) — you can integrate Formspree or Netlify forms later
+    function handleForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message) return alert('Please fill all fields');
+      alert('Thanks, '+name+"! This is a demo form. To make it live, connect a backend or use Formspree/Netlify forms.");
+      e.target.reset();
+    }
+
+    // fill year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
