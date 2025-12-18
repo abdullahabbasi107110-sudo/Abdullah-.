@@ -32,7 +32,7 @@
       margin:0 auto;
       padding:24px;}
 
-    /* NAV */
+    
     header{
       position:sticky;
       top:0;
@@ -73,7 +73,7 @@
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
     }
 
-    /* Mobile nav */
+    
     .hamburger{display:none;
       background:none;
       border:0;
@@ -84,7 +84,7 @@
       display:none;
     }
 
-    /* HERO */
+    
     .hero{display:grid;
       grid-template-columns:1fr 420px;
       gap:36px;
@@ -133,7 +133,7 @@
       border-radius:10px;
     }
 
-    /* SECTIONS */
+    
     section{
       padding:48px 0;
     }
@@ -145,7 +145,7 @@
       color:var(--muted);
     }
 
-    /* SKILLS */
+    
     .skills{
       display:flex;
       flex-wrap:wrap;
@@ -159,7 +159,7 @@
       color:var(--muted);
     }
 
-    /* PROJECTS */
+    
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -189,7 +189,7 @@
       font-size:13px;
     }
 
-    /* CONTACT */
+    
     .contact-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -208,14 +208,14 @@
       resize:vertical;
     }
 
-    /* FOOTER */
+    
     footer{padding:28px 0;
       text-align:center;
       color:var(--muted);
       font-size:14px
     }
 
-    /* Responsive */
+    
     @media (max-width:1000px){
       .hero{
         grid-template-columns:1fr 360px}
@@ -250,7 +250,7 @@
       }
     }
 
-    /* small touches */
+  
     a{
       cursor:pointer;
     }
@@ -374,7 +374,7 @@
       <h2>Contact</h2>
       <div class="card contact-grid">
         <div>
-          <p class="muted">Interested in working together? Send a message or reach me on social links below.</p>
+          <p class="muted">Interested in working together? Send a message or reach me on social links below..</p>
           <div style="margin-top:12px">
             <div><strong>Email</strong></div>
             <div class="muted">youremail@example.com</div>
@@ -404,12 +404,12 @@
 
   <footer>
     <div class="container">
-      <div class="muted">© <span id="year"></span> Your Name. Built with ❤️ • <span class="small">Made with plain HTML, CSS & JS</span></div>
+      <div class="muted">© <span id="year"></span> Your Name. Built with--- • <span class="small">Made with plain HTML, CSS & JS</span></div>
     </div>
   </footer>
 
   <script>
-    // small interactive script for menu, smooth scrolling, and form stub
+    
     const hamb = document.getElementById('hamb');
     const mobileMenu = document.getElementById('mobileMenu');
     hamb.addEventListener('click', ()=>{
@@ -417,7 +417,7 @@
       else mobileMenu.style.display = 'none';
     });
 
-    // smooth scroll for same page links
+    
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', function(e){
         const target = this.getAttribute('href');
@@ -425,13 +425,13 @@
         if(document.querySelector(target)){
           e.preventDefault();
           document.querySelector(target).scrollIntoView({behavior:'smooth',block:'start'});
-          // close mobile menu on click
+        
           if(window.innerWidth <= 768) mobileMenu.style.display = 'none';
         }
       });
     });
 
-    // form stub (no backend) — you can integrate Formspree or Netlify forms later
+    
     function handleForm(e){
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
@@ -442,9 +442,10 @@
       e.target.reset();
     }
 
-    // fill year
+    
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 
 </html>
+
